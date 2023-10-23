@@ -6,24 +6,30 @@ const state = {
     score: document.querySelector("#score"),
     dialog: document.querySelector(".container__dialog"),
     dialogText: document.querySelector(".corpo__dialog p"),
+    lives: document.querySelector("#lives"),
+    level: document.querySelector("#level"),
   },
   values: {
     gameVelocity: 1000,
     hitPosition: 0,
     result: 0,
     curretTime: 60,
+    lives: 10,
+    dificult:15,
+    level:1,
   },
   actions: {
-    timerId: setInterval(randomSquare, 1000),
-    countDownTimerId: setInterval(countDown, 1000),
+    timerId: null,
+    countDownTimerId: null,
   },
 };
 
 function countDown() {
   state.values.curretTime--;
   state.view.timeLeft.textContent = state.values.curretTime;
-
-  if (state.values.curretTime <= 0) {
+  state.view.lives.textContent = state.values.lives;
+  state.view.level.textContent = state.values.level;
+  if (state.values.lives <= 0 || state.values.curretTime <= 0) {
     clearInterval(state.actions.countDownTimerId);
     clearInterval(state.actions.timerId);
     state.view.dialogText.innerHTML = "Game Over! O seu resultado foi: " + state.values.result;
@@ -34,7 +40,7 @@ function countDown() {
 const btnCloseDialog = document.getElementById("close");
 btnCloseDialog.addEventListener("click", () => {
   state.view.dialog.classList.add("hidden");
-  initialize();
+  gameReset();
 });
 
 function playSound(audioName) {
@@ -61,14 +67,42 @@ function addListenerHitBox() {
         state.values.result++;
         state.view.score.textContent = state.values.result;
         state.values.hitPosition = null;
+        state.values.curretTime = state.values.curretTime + 3;
         playSound("hit");
+
+        if(state.values.result === state.values.dificult){
+          state.values.dificult = state.values.dificult + 15;
+            state.values.lives = state.values.lives + 5;
+            state.values.level++;
+            clearInterval(state.actions.timerId);
+            state.values.gameVelocity = state.values.gameVelocity / 1.2;
+            state.actions.timerId = setInterval(randomSquare, state.values.gameVelocity);
+        }
+        
+      } else if(state.values.lives > 0){
+        state.values.lives--;
+        state.view.lives.textContent = state.values.lives;
       }
     });
   });
 }
 
+function gameReset(){
+  state.values.curretTime = 60;
+  state.actions.timerId = setInterval(randomSquare, 1000);
+  state.actions.countDownTimerId = setInterval(countDown, 1000);
+  state.values.result = 0;
+  state.view.score.textContent = 0;
+  state.values.dificult = 15;
+  state.values.lives = 10;
+  state.values.level = 1;
+  state.view.lives.textContent = state.values.lives;
+  state.view.level.textContent = state.values.level;
+}
+
 function initialize() {
   addListenerHitBox();
+  gameReset();
 }
 
 initialize();

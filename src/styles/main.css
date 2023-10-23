@@ -36,6 +36,12 @@
   background-size: cover;
 }
 
+.enemy:active {
+  filter: invert(100%);
+-webkit-filter: invert(100%);
+-moz-filter: invert(100%);
+}
+
 .menu-lives {
   display: flex;
   align-items: center;
@@ -43,7 +49,8 @@
 }
 
 .menu-time h2:nth-child(2),
-.menu-score h2:nth-child(2) {
+.menu-score h2:nth-child(2),
+.menu-level h2:nth-child(2) {
   margin-top: 1rem;
 }
 
