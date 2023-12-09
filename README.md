@@ -3,7 +3,7 @@
 ## 📖 Descrição
 O *Detona Halph Js* é um jogo emocionante que desafia sua rapidez e agilidade desenvolvido em HTML, JavaScript e CSS. Clique no quadro certo antes que a imagem do Halph mude e veja quanto tempo você consegue resistir!
 
-Este projeto foi concebido durante a participação no **<a href="https://www.dio.me/certificate/98723684/share" target="_blank">Bootcamp Potência Tech iFood</a>**, uma experiência de aprendizado proporcionada por meio de uma bolsa de estudos oferecida pela colaboração entre a renomada empresa <a href="https://www.ifood.com.br/" target="_blank">iFood</a> e a <a href="https://www.dio.me/" target="_blank">DIO (Digital Innovation One)</a>. Este programa visou o Desenvolvimento de Jogos e representou um desafio técnico valioso, contribuindo significativamente para o aprimoramento das habilidades em programação web dos participantes.
+Este projeto foi concebido durante a participação no **[Bootcamp Potência Tech iFood - Desenvolvimento de Jogos](https://www.dio.me/certificate/98723684/share)**, uma experiência de aprendizado proporcionada por meio de uma bolsa de estudos oferecida pela colaboração entre a renomada empresa [iFood](https://www.ifood.com.br/) e a [DIO (Digital Innovation One)](https://www.dio.me/). Este programa visou o Desenvolvimento de Jogos e representou um desafio técnico valioso, contribuindo significativamente para o aprimoramento das habilidades em programação web dos participantes.
 
 ![Detona Halph](https://github.com/EdimilsonBorges/detona-ralph-js/assets/104403198/054c4a56-b611-42cd-8645-61934aa360e9)
 
